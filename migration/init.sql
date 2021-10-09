@@ -1,0 +1,1 @@
+CREATE DATABASE studentdb ENCODING 'utf8' TEMPLATE template0;
