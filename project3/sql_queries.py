@@ -120,11 +120,18 @@ CREATE TABLE IF NOT EXISTS time (
 # STAGING TABLES
 
 staging_events_copy = ("""
-
-""").format()
+   copy staging_events
+   from {0}
+   iam_role {1}
+   json {2};
+""").format(LOG_DATA, ARN, LOG_JSONPATH)
 
 staging_songs_copy = ("""
-""").format()
+   copy staging_songs
+   from {0}
+   iam_role {1}
+   json 'auto';
+""").format(SONG_DATA, ARN)
 
 # FINAL TABLES
 
